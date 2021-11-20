@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Empresa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastre sua Empresa</h1>
+</div>
+
+<form>
+  <fieldset >
+    <legend>Preencha as informações abaixo</legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Nome</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Digite o nome da empresa">
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Nome Fantasia</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Digite o nome fantasia da empresa">
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">CNPJ</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Digite o CNPJ da empresa">
+    </div>
+    @*<div class="mb-3">
+      <label for="disabledSelect" class="form-label">CNPJ</label>
+      <select id="disabledSelect" class="form-select">
+        <option>Disabled select</option>
+      </select>
+    </div>*@
+    <div class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >
+        <label class="form-check-label" for="disabledFieldsetCheck">
+          Aceito os Termos.
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </fieldset>
+</form>
