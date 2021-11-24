@@ -1,4 +1,6 @@
-﻿@{
+﻿@model EmpresaModel
+
+@{
     ViewData["Title"] = "Empresa";
 }
 
@@ -6,20 +8,21 @@
     <h1 class="display-4">Cadastre sua Empresa</h1>
 </div>
 
-<form>
+<form asp-action="Create" class="needs-validation" novalidate> 
+
   <fieldset >
     <legend>Preencha as informações abaixo</legend>
     <div class="mb-3">
       <label for="disabledTextInput" class="form-label">Nome</label>
-      <input type="text" id="disabledTextInput" class="form-control" placeholder="Digite o nome da empresa">
+      <input type="text" id="disabledTextInput" asp-for="Nome" class="form-control" placeholder="Digite o nome da empresa">
     </div>
     <div class="mb-3">
       <label for="disabledTextInput" class="form-label">Nome Fantasia</label>
-      <input type="text" id="disabledTextInput" class="form-control" placeholder="Digite o nome fantasia da empresa">
+      <input type="text" id="disabledTextInput" asp-for="NomeFantasia" class="form-control" placeholder="Digite o nome fantasia da empresa">
     </div>
     <div class="mb-3">
       <label for="disabledTextInput" class="form-label">CNPJ</label>
-      <input type="text" id="disabledTextInput" class="form-control" placeholder="Digite o CNPJ da empresa">
+      <input type="text" id="disabledTextInput" asp-for="CNPJ" class="form-control" placeholder="Digite o CNPJ da empresa">
     </div>
     @*<div class="mb-3">
       <label for="disabledSelect" class="form-label">CNPJ</label>
@@ -35,6 +38,6 @@
         </label>
       </div>
     </div>*@
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+   <button type="submit" value="Create" class="btn btn-primary">Cadastrar</button>
   </fieldset>
 </form>
