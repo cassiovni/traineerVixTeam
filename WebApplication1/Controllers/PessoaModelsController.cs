@@ -56,8 +56,9 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario")] PessoaModel pessoaModel)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
+                pessoaModel.Situacao = "Ativo";
                 _context.Add(pessoaModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
