@@ -14,9 +14,13 @@ namespace WebApplication1.Models
         [Display(Name = "Quantidade de Filhos")]
         public int QuantidadeFilhos { get; set; }
         [Display(Name = "Salário")]
-        public decimal Salario { get; set; }
+        public int Salario { get; set; }
         [Display(Name = "Situação")]
         public string Situacao { get; set; }
+        //[Display(Name = "Alterar Status")]
+        //public string AlterarStatus { get; set; }
+
+
 
 
     }
