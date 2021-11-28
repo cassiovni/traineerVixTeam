@@ -30,9 +30,6 @@
              <th>
                 @Html.DisplayNameFor(model => model.Situacao)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.AlterarStatus)
-            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -58,12 +55,7 @@
              <td class="form-switch">
                 @Html.DisplayFor(modelItem => item.Situacao)
             </td>
-            @*<td class="form-switch">
-                <input class="form-check-input p-0 mx-auto" type="checkbox" role="switch" id="flexSwitchCheckChecked"  asp-action="AlterarStatus" checked >
-                @Html.DisplayFor(modelItem => item.AlterarStatus)
-            </td>*@
             <td>
-                @*<a asp-for="Ativacao" asp-action="Activate(this)" class="form-check form-switch d-inline-flex"></a>*@
 
                 <a asp-action="AlterarStatus" asp-route-id="@item.Codigo">Alterar Status</a> | 
                 

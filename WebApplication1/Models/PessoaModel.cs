@@ -17,8 +17,6 @@ namespace WebApplication1.Models
         public int Salario { get; set; }
         [Display(Name = "Situação")]
         public string Situacao { get; set; }
-        //[Display(Name = "Alterar Status")]
-        //public string AlterarStatus { get; set; }
 
 
 

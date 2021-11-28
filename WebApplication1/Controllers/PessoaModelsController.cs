@@ -58,8 +58,6 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario")] PessoaModel pessoaModel)
         {
-            //if (ModelState.IsValid)
-            //{
             pessoaModel.Situacao = "Ativo";
 
             if (!NegocioPessoa.DataNascimentoSuperior(pessoaModel.DataNascimento))
@@ -75,17 +73,32 @@ namespace WebApplication1.Controllers
                 return View();
             }
 
+            if (NegocioPessoa.VerificaSalarioMenor(pessoaModel.Salario))
+            {
+                ModelState.AddModelError("", "Salario não pode ser menor que 1.200");
+                return View();
+            }
+
+            if (NegocioPessoa.VerificaSalarioMaior(pessoaModel.Salario))
+            {
+                ModelState.AddModelError("", "Salario não pode ser maior que 13.000");
+                return View();
+            }
+
+            if (NegocioPessoa.QuantidadeFilhosPositiva(pessoaModel.QuantidadeFilhos))
+            {
+                ModelState.AddModelError("", "A quantidade de filhos tem que ser positiva");
+                return View(pessoaModel);
+            }
+
             _context.Add(pessoaModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-            //}
-            //return View(pessoaModel);
         }
 
         // GET: PessoaModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            //NegocioPessoa teste = new NegocioPessoa();
 
             if (id == null)
             {
@@ -122,8 +135,6 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            //if (ModelState.IsValid)
-            //{
 
             if (NegocioPessoa.QuantidadeFilhosPositiva(pessoaModel.QuantidadeFilhos))
             {
@@ -149,14 +160,6 @@ namespace WebApplication1.Controllers
                 return View();
             }
 
-            /*var pessoaEmail = _context.PessoaModel.Where(x => x.Email.Equals(pessoaModel.Email) && x.Codigo != pessoaModel.Codigo);
-            if (pessoaEmail.Count() > 0)
-            {
-                ModelState.AddModelError("", "E-mail ja cadastrado");
-                return View();
-            }*/
-
-
             try
             {
                 _context.Update(pessoaModel);
@@ -174,8 +177,6 @@ namespace WebApplication1.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-            //}
-            //return View(pessoaModel);
         }
 
         // GET: PessoaModels/Delete/5
